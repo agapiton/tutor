@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvkx57asnv7f3"
+path="res://.godot/imported/bonus-sound-for-phone-or-sms-alert-received.mp3-0b61f149e22f800bfcc2e84cd4273f6a.mp3str"
+
+[deps]
+
+source_file="res://new folder/Pixel Adventure 1/Free/Main Characters/bonus-sound-for-phone-or-sms-alert-received.mp3"
+dest_files=["res://.godot/imported/bonus-sound-for-phone-or-sms-alert-received.mp3-0b61f149e22f800bfcc2e84cd4273f6a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

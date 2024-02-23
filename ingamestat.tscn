@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://ex4r0lunk3l8"]
+
+[ext_resource type="Script" path="res://ingamestat.gd" id="1_waaxe"]
+
+[node name="ingamestat" type="CanvasLayer"]
+script = ExtResource("1_waaxe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 16.0
+offset_right = 137.0
+offset_bottom = 50.0
+scale = Vector2(4.69141, 5.31536)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="score" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "score"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="hscore" type="Label" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "hscore"

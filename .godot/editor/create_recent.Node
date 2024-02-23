@@ -1,0 +1,14 @@
+CollisionShape2D
+Button
+Timer
+ParallaxLayer
+ParallaxBackground
+PointLight2D
+StaticBody2D
+Area2D
+Marker2D
+Label
+AnimatedSprite2D
+CharacterBody2D
+Camera2D
+MarginContainer

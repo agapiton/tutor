@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddqx41n2qop42"]
+
+[ext_resource type="Script" path="res://exit_door.gd" id="1_eeley"]
+[ext_resource type="Texture2D" uid="uid://xwu0vrlpdwp7" path="res://new folder/Pixel Adventure 1/Free/Items/Checkpoints/End/End (Pressed) (64x64).png" id="1_hebvr"]
+[ext_resource type="Texture2D" uid="uid://dclc2b0vn8aju" path="res://new folder/Pixel Adventure 1/Free/Items/Checkpoints/End/End (Idle).png" id="2_y8blr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv05k"]
+atlas = ExtResource("1_hebvr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0puk7"]
+atlas = ExtResource("1_hebvr")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vl2f"]
+atlas = ExtResource("1_hebvr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_131ls"]
+atlas = ExtResource("1_hebvr")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03eaf"]
+atlas = ExtResource("1_hebvr")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahxbe"]
+atlas = ExtResource("1_hebvr")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtn5b"]
+atlas = ExtResource("1_hebvr")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlrcq"]
+atlas = ExtResource("1_hebvr")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cehly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv05k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0puk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vl2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_131ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03eaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahxbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtn5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlrcq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nbri"]
+radius = 115.017
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6vvl"]
+radius = 26.0
+height = 52.0
+
+[node name="ExitDoor" type="Node2D"]
+script = ExtResource("1_eeley")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_cehly")
+frame_progress = 0.0584182
+metadata/_edit_lock_ = true
+
+[node name="End(idle)" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_y8blr")
+metadata/_edit_lock_ = true
+
+[node name="animexit" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="animexit"]
+position = Vector2(0, -26)
+shape = SubResource("CircleShape2D_2nbri")
+
+[node name="gonextscene" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gonextscene"]
+position = Vector2(0, -26)
+shape = SubResource("CapsuleShape2D_k6vvl")
+
+[connection signal="body_entered" from="animexit" to="." method="_on_animexit_body_entered"]
+[connection signal="body_exited" from="animexit" to="." method="_on_animexit_body_exited"]
+[connection signal="body_entered" from="gonextscene" to="." method="_on_gonextscene_body_entered"]

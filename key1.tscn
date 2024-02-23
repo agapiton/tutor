@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtwdylgslcr6"]
+
+[ext_resource type="Script" path="res://melon.gd" id="1_fgbm1"]
+[ext_resource type="Texture2D" uid="uid://c0f08n4xwpod8" path="res://new folder/2px/11a.png" id="3_g16hw"]
+[ext_resource type="AudioStream" uid="uid://dvkx57asnv7f3" path="res://new folder/Pixel Adventure 1/Free/Main Characters/bonus-sound-for-phone-or-sms-alert-received.mp3" id="3_on2jb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ks8cg"]
+size = Vector2(18, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6v4un"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g16hw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="melon" type="Area2D"]
+script = ExtResource("1_fgbm1")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ks8cg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_on2jb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6v4un")
+frame_progress = 0.961011
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

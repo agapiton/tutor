@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwdd3pk0cu8c3"]
+
+[ext_resource type="Script" path="res://mainmenu.gd" id="1_rg31p"]
+[ext_resource type="Texture2D" uid="uid://d05s6xwjfiby5" path="res://new folder/Pixel Adventure 1/Free/Background/Purple.png" id="2_361d0"]
+
+[node name="mainmenu" type="CanvasLayer"]
+script = ExtResource("1_rg31p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.0
+offset_top = -470.0
+offset_right = -261.0
+offset_bottom = -299.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.65802, 5.44405)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="startgame" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="continuegame" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Continue Game"
+
+[node name="options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="highscore" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "High Score"
+
+[node name="exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Purple" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1202.5, 601)
+scale = Vector2(37.4531, 18.5313)
+texture = ExtResource("2_361d0")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Purple" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+self_modulate = Color(0.960784, 0.862745, 0.988235, 1)
+position = Vector2(1202.88, 614.565)
+rotation = 0.799006
+scale = Vector2(26.0922, 26.8635)
+texture = ExtResource("2_361d0")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/startgame" to="." method="_on_startgame_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/continuegame" to="." method="_on_continuegame_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/highscore" to="." method="_on_highscore_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
